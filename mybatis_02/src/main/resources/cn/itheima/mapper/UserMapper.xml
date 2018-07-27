@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.itheima.dao.IUserDao">
+	
+	<insert id="insertUser" parameterType="cn.itheima.domain.User">
+		INSERT INTO `user` (`username`, `password`) VALUES(#{username}, #{password})
+	</insert>
+	
+	<delete id="deleteUserLikeUsername" parameterType="java.lang.String">
+		DELETE FROM `user` WHERE `username` LIKE #{username};
+	</delete>
+	
+	<update id="updateUser" parameterType="cn.itheima.domain.User">
+		UPDATE `user` SET `username` = #{username}, `password` = #{password} WHERE `id` = #{id}
+	</update>
+	
+	<select id="selectUserById" parameterType="java.lang.Integer" resultType="cn.itheima.domain.User">
+		SELECT * FROM `user` WHERE `id` = #{id}
+	</select>
+	
+	<select id="selectTotalRecord" resultType="java.lang.Integer">
+		SELECT COUNT(*) FROM `user`
+	</select>
+	
+	<select id="selectAllUser" resultType="cn.itheima.domain.User">
+		SELECT * FROM `user`
+	</select>
+	
+</mapper>
