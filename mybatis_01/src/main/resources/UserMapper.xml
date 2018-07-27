@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapper namespace="cn.itheima.mapper.UserMapper">
+	
+	<select id="selectAll" resultType="cn.ithema.pojo.User">
+		SELECT `id`, `name` FROM `users`
+	</select>
+	
+</mapper>
